@@ -293,4 +293,5 @@ if (checkoutBtn) {
       .getElementById("checkout")
       .scrollIntoView({
         behavior: "smooth"
-      });
+          });
+}
