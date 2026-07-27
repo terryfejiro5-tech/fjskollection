@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fjs Kollection</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<h1>Fjs Kollection</h1>
+<p>Luxury Fashion For Every Woman 💕</p>
+</div>
+
+<nav>
+
+<a href="#">Home</a>
+
+<a href="#products">Shop</a>
+
+<a href="#new-arrivals">New Arrivals</a>
+
+<a href="#best-sellers">Best Sellers</a>
+
+<a href="#contact">Contact</a>
+
+<a href="#cart">
+<i class="fa-solid fa-cart-shopping"></i>
+<span id="cart-count">0</span>
+</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+  <h2>✨ Fashion That Speaks Confidence ✨</h2>
+
+  <p>
+    Discover trendy dresses, stylish bags, heels, sandals, and palm slippers at affordable prices.
+  </p>
+
+
+  <a href="#products" class="shop-btn">Shop Now</a>
+
+  <img 
+  src="https://i.postimg.cc/MKr1czfB/AF8EAD2F-25E6-4637-8EDF-5FC1F2A8411B.png"
+  alt="Fjs Kollection Flyer" 
+  class="hero-flyer">
+  
+</section>
+
+<section class="search-section">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search products...">
+
+</section>
+
+<section class="categories">
+
+<h2>Shop Categories</h2>
+
+<div class="category-container">
+
+<div class="category-card">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+<h3>Bags</h3>
+
+<p>Luxury handbags</p>
+
+</div>
+
+<div class="category-card">
+
+<i class="fa-solid fa-shirt"></i>
+
+<h3>Dresses</h3>
+
+<p>Beautiful outfits</p>
+
+</div>
+
+<div class="category-card">
+
+<i class="fa-solid fa-shoe-prints"></i>
+
+<h3>Heels</h3>
+
+<p>Elegant heels</p>
+
+</div>
+
+<div class="category-card">
+
+<i class="fa-solid fa-person-dress"></i>
+
+<h3>Sandals</h3>
+
+<p>Comfort & Style</p>
+
+</div>
+
+<div class="category-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h3>Palm Slippers</h3>
+
+<p>Trending Collection</p>
+
+</div>
+
+</div>
+
+</section>
+<div class="filter-buttons">
+
+  <button class="filter-btn active" data-filter="all">All</button>
+
+  <button class="filter-btn" data-filter="bag">Bags</button>
+
+  <button class="filter-btn" data-filter="dress">Dresses</button>
+
+  <button class="filter-btn" data-filter="slide">Slides</button>
+
+  <button class="filter-btn" data-filter="heel">Heels</button>
+
+  <button class="filter-btn" data-filter="sandal">Sandals</button>
+
+</div>
+  
+<section id="products" class="products">
+
+<h2>Featured Products</h2>
+
+<div class="product-container">
+
+<div class="product" data-category="bag">
+
+<span class="sale">SALE</span>
+
+<span class="wishlist">
+♡
+</span>
+
+<img
+src="https://i.postimg.cc/g0vwR10y/4fd4c454-49c1-402a-a076-85cc4b7d6c61.jpg"
+alt="Ladies Bag">
+
+<h3>Luxury Ladies Bag</h3>
+
+<div class="rating">
+
+★★★★★
+
+<span>(4.9)</span>
+
+</div>
+
+<p class="price">
+
+<span class="old-price">
+₦25,000
+</span>
+
+<span class="new-price">
+₦21,000
+</span>
+
+</p>
+
+<label>Colour</label>
+
+<select class="colour">
+
+<option>Black</option>
+
+<option>Brown</option>
+
+<option>Pink</option>
+
+<option>White</option>
+
+<option>Nude</option>
+
+</select>
+
+<label>Quantity</label>
+
+<select class="quantity">
+
+<option>1</option>
+
+<option>2</option>
+
+<option>3</option>
+
+<option>4</option>
+
+<option>5</option>
+
+</select>
+
+<button>
+Add To Cart
+</button>
+
+</div>
+
+ <div class="product" data-category="bag">
+
+  <span class="badge sale">NEW</span>
+  <span class="favorite">🤍</span>
+
+  <img src="https://i.postimg.cc/SK8nHJCq/cb39d7d9-8fd4-4fd2-972f-a06eeae90d69.jpg" alt="Luxury Yellow Coach Bag">
+
+  <h3>Luxury Yellow Coach Bag</h3>
+
+  <div class="rating">
+    ★★★★★ <span>(5.0)</span>
+  </div>
+
+  <p class="price">
+    <span class="new-price">₦29,000</span>
+  </p>
+
+  <label>Choose Colour:</label>
+
+  <select>
+    <option>Yellow</option>
+  </select>
+
+  <label>Quantity:</label>
+
+  <select class="quantity">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+
+  <button>Add to Cart</button>
+
+</div>
+
+<div class="product" data-category="slide">
+
+  <span class="badge sale">SALE</span>
+  <span class="favorite">🤍</span>
+
+  <img src="https://i.postimg.cc/nhRnhZYF/IMG-4457.jpg" alt="Fully Boxed LV Classy Slide">
+
+  <h3>Fully Boxed LV Classy Slide</h3>
+
+  <div class="rating">
+    ★★★★★ <span>(5.0)</span>
+  </div>
+
+  <p class="price">
+    <span class="old-price">₦21,000</span>
+    <span class="new-price">₦19,000</span>
+  </p>
+
+  <label>Choose Colour:</label>
+
+  <select>
+    <option>Black</option>
+    <option>Burgundy</option>
+  </select>
+
+  <label>Choose Size:</label>
+
+  <select>
+    <option>37</option>
+    <option>38</option>
+    <option>39</option>
+    <option>40</option>
+    <option>41</option>
+    <option>42</option>
+  </select>
+
+  <label>Quantity:</label>
+
+  <select class="quantity">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+
+  <button>Add to Cart</button>
+
+</div>
+
+<div class="product" data-category="slide">
+
+  <span class="badge sale">SALE</span>
+  <span class="favorite">🤍</span>
+
+  <img src="https://i.postimg.cc/Hkrzc9DN/IMG-4453.jpg" alt="Luxury Coach Shiny Slide">
+
+  <h3>Luxury Coach Shiny Slide</h3>
+
+  <div class="rating">
+    ★★★★★ <span>(5.0)</span>
+  </div>
+
+  <p class="price">
+    <span class="old-price">₦15,000</span>
+    <span class="new-price">₦13,000</span>
+  </p>
+
+  <label>Choose Colour:</label>
+
+  <select>
+    <option>Black</option>
+  </select>
+
+  <label>Choose Size:</label>
+
+  <select>
+    <option>Size 37</option>
+    <option>Size 38</option>
+    <option>Size 39</option>
+    <option>Size 40</option>
+    <option>Size 41</option>
+    <option>Size 42</option>
+  </select>
+
+  <label>Quantity:</label>
+
+  <select class="quantity">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+
+  <button>Add to Cart</button>
+
+</div>
+<div class="product" data-category="dress">
+
+  <span class="badge sale">SALE</span>
+  <span class="favorite">🤍</span>
+
+  <img src="https://i.postimg.cc/J79YNFxg/IMG-4456.jpg" alt="Sexy Floral V-Neck Fitted Bustier Dress">
+
+  <h3>Sexy Floral V-Neck Fitted Bustier Dress</h3>
+
+  <div class="rating">
+    ★★★★★ <span>(5.0)</span>
+  </div>
+
+  <p>Pre-order • Delivered after 2 weeks</p>
+
+  <p class="price">
+    <span class="old-price">₦32,717</span>
+    <span class="new-price">₦30,800</span>
+  </p>
+
+  <label>Choose Size:</label>
+
+  <select>
+    <option>XS</option>
+    <option>S</option>
+    <option>M</option>
+    <option>L</option>
+  </select>
+
+  <label>Choose Colour:</label>
+
+  <select>
+    <option>Multicolor</option>
+  </select>
+
+  <label>Quantity:</label>
+
+  <select class="quantity">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+
+  <button>Add to Cart</button>
+
+</div>
+
+</div>
+
+</section>
+
+  <section id="new-arrivals" class="new-arrivals">
+
+<h2>🆕 New Arrivals</h2>
+
+<div class="arrival-container">
+
+<div class="arrival-card">
+  <span class="badge">NEW</span>
+
+  <img src="https://i.postimg.cc/c1Rth9NH/IMG-4458.jpg" alt="Women's Draped Neck Bell Sleeve Long Sleeve Solid Color Strap Decor Sexy Dress">
+
+  <h3>Women's Draped Neck Bell Sleeve Long Sleeve Solid Color Strap Decor Sexy Dress</h3>
+
+  <p><strong>₦25,000</strong></p>
+</div>
+
+<div class="arrival-card">
+  <span class="badge">NEW</span>
+
+  <img src="https://i.postimg.cc/SK8nHJCq/cb39d7d9-8fd4-4fd2-972f-a06eeae90d69.jpg" alt="Luxury Yellow Coach Bag">
+
+  <h3>Luxury Yellow Coach Bag</h3>
+
+  <p>₦29,000</p>
+</div>
+
+<div class="arrival-card">
+  <span class="badge">NEW</span>
+
+  <img src="https://i.postimg.cc/qqHNxnRJ/IMG-4459.jpg" alt="Black Open Toe High Heel Sandals">
+
+  <h3>Black Open Toe High Heel Sandals</h3>
+
+  <p><strong>₦29,000</strong></p>
+</div>
+
+</div>
+
+</section>
+
+<section class="why-us">
+
+<h2>Why Shop With Fjs Kollection?</h2>
+
+<div class="why-container">
+
+<div class="why-card">
+<h3>🚚 Nationwide Delivery</h3>
+<p>We deliver safely across Nigeria.</p>
+</div>
+
+<div class="why-card">
+<h3>💎 Premium Quality</h3>
+<p>Quality fashion carefully selected for you.</p>
+</div>
+
+<div class="why-card">
+<h3>💬 Fast Support</h3>
+<p>Quick responses on WhatsApp.</p>
+</div>
+
+<div class="why-card">
+<h3>💳 Secure Payment</h3>
+<p>Easy bank transfer payment.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews">
+
+<h2>⭐ Customer Reviews</h2>
+
+<div class="review-container">
+
+<div class="review-card">
+<p>"The bag was exactly as shown. I love it!"</p>
+<h4>— Ada ⭐⭐⭐⭐⭐</h4>
+</div>
+
+<div class="review-card">
+<p>"Fast delivery and beautiful slippers."</p>
+<h4>— Chioma ⭐⭐⭐⭐⭐</h4>
+</div>
+
+<div class="review-card">
+<p>"Excellent customer service. I'll order again."</p>
+<h4>— Esther ⭐⭐⭐⭐⭐</h4>
+</div>
+
+</div>
+
+</section>
+
+<section id="best-sellers" class="best-sellers">
+
+<h2>❤️ Best Sellers</h2>
+
+<div class="best-card">
+
+  <img src="https://i.postimg.cc/Yq3M8Sz1/IMG-4463.jpg" alt="Luxury Stoned Bag">
+
+  <h3>Luxury Stoned Bag</h3>
+
+  <p>₦15,000</p>
+
+</div>
+
+<div class="best-card">
+
+  <img src="https://i.postimg.cc/tC1NN1bQ/IMG-4465.jpg" alt="Glittery LV Slide">
+
+  <h3>Glittery LV Slide</h3>
+
+  <p>₦13,000</p>
+
+</div>
+
+<div class="best-card">
+
+  <img src="https://i.postimg.cc/RhxJ10LC/IMG-4467.jpg" alt="Luxury Dior Bag With Fan">
+
+  <h3>Luxury Dior Bag With Fan</h3>
+
+  <p>₦20,000</p>
+
+</div>
+
+</section>
+
+<section id="cart" class="cart">
+
+  <h2>Your Cart 🛒</h2>
+
+  <div id="cart-items">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <h3 id="cart-total">
+    Total: ₦0
+  </h3>
+
+  <button id="checkoutBtn">
+    Proceed to Checkout
+  </button>
+
+</section>
+
+  <section id="checkout" class="checkout">
+
+<h2>Checkout 💕</h2>
+
+<form id="order-form">
+
+<input
+type="text"
+id="customerName"
+placeholder="Full Name"
+required>
+
+<input
+type="tel"
+id="customerPhone"
+placeholder="Phone Number"
+required>
+
+<textarea
+id="customerAddress"
+placeholder="Delivery Address"
+required></textarea>
+
+<div class="payment-box">
+
+<h3>Payment Details 💳</h3>
+
+<p>Bank Name: Opay</p>
+<p>Account Name: Ewurie Fejiro Theresa</p>
+<p>Account Number: 7078201628</p>
+
+</div>
+
+<p style="margin:20px 0;color:#555;">
+💡 <strong>After clicking "Place Order on WhatsApp", please attach your payment receipt in the WhatsApp chat before sending your message.</strong>
+</p>
+
+<button type="submit">
+Place Order on WhatsApp
+</button>
+
+</form>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>Contact Fjs Kollection</h2>
+
+<p><strong>Email:</strong> tfeji12@email.com</p>
+
+<p><strong>Location:</strong> Warri, Delta, Nigeria</p>
+
+<a href="https://whatsapp.com/channel/0029Vb8ud1B5Ui2dPO48e009" 
+target="_blank"
+class="contact-btn">
+Join Our WhatsApp Channel 💕
+</a>
+
+</section>
+
+<section class="newsletter">
+
+<h2>Stay Updated 💌</h2>
+
+<p>
+Be the first to know about our latest arrivals and discounts.
+</p>
+
+<input
+type="email"
+placeholder="Enter your email">
+
+<button>
+Subscribe
+</button>
+
+</section>
+
+<footer>
+
+<h2>Fjs Kollection 💕</h2>
+
+<p>Your One-Stop Fashion Store.</p>
+
+<p>Nationwide Delivery 🚚</p>
+
+<p>WhatsApp: 08166061700</p>
+
+<p>&copy; 2026 Fjs Kollection. All Rights Reserved.</p>
+
+</footer>
+
+<div class="bottom-nav">
+
+<a href="#">
+🏠<br>Home
+</a>
+
+<a href="#products">
+🛍️<br>Shop
+</a>
+
+<a href="#cart">
+🛒<br>Cart
+</a>
+
+<a href="#contact">
+📞<br>Contact
+</a>
+
+</div>
+
+<div id="productPopup" class="popup">
+
+<div class="popup-content">
+
+<span class="close-popup">&times;</span>
+
+<img
+id="popupImage"
+src=""
+alt="Product Image">
+
+<h2 id="popupTitle"></h2>
+
+<p id="popupPrice"></p>
+
+<p>
+Premium quality from Fjs Kollection 💕
+</p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
