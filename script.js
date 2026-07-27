@@ -298,3 +298,33 @@ if (checkoutBtn) {
       });
   });
 }
+// ===== Load Products Automatically =====
+
+const productList = document.getElementById("dynamic-products");
+
+if (productList && typeof products !== "undefined") {
+
+  products.forEach(product => {
+
+    const div = document.createElement("div");
+
+    div.className = "product";
+
+    div.innerHTML = `
+      <img src="${product.image}" alt="${product.name}">
+
+      <h3>${product.name}</h3>
+
+      <p class="price">
+        <span class="old-price">${product.oldPrice}</span>
+        <span class="new-price">${product.price}</span>
+      </p>
+
+      <button>Add to Cart</button>
+    `;
+
+    productList.appendChild(div);
+
+  });
+
+}
