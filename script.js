@@ -821,3 +821,38 @@ window.open(
 
 
 updateCart();
+// ===== Track Order =====
+
+const trackForm = document.getElementById("track-form");
+
+if(trackForm){
+
+trackForm.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+
+const orderNumber = document.getElementById("orderNumber").value;
+
+
+document.getElementById("order-result").innerHTML = `
+
+<h3>Order Received ✅</h3>
+
+<p>
+Order Number: ${orderNumber}
+</p>
+
+<p>
+Your order is being processed.
+</p>
+
+<p>
+For delivery updates, contact Fjs Kollection on WhatsApp.
+</p>
+
+`;
+
+});
+
+}
