@@ -231,3 +231,36 @@ const products = [
   }
 
 ];
+  {
+    id: 2,
+    name: "Big Hermes Bag",
+    category: "bag",
+    badge: "NEW",
+    rating: 4.9,
+    stock: 10,
+
+    oldPrice: 0,
+    price: 20000,
+
+    image: "https://i.postimg.cc/65xPkRfx/IMG-4496.jpg",
+
+    description:
+      "A big Hermes bag with a stylish and classy design, perfect for outings, office, dinner dates and everyday fashion.",
+
+    colours: [
+      "White",
+      "Nude",
+      "Brown",
+      "Black",
+      "Blue",
+      "Red",
+      "Pink",
+      "Ash"
+    ],
+
+    sizes: [],
+
+    featured: true,
+    bestSeller: false,
+    newArrival: true
+  },
