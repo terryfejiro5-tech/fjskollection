@@ -197,7 +197,7 @@ const products = [
   }
 
 
-    {
+  {
     id: 7,
     name: "Black Open Toe High Heel Sandals",
     category: "heel",
@@ -228,7 +228,7 @@ const products = [
     featured: false,
     bestSeller: true,
     newArrival: true
-  },
+  }
 
 
   {
