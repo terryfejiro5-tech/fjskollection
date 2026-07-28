@@ -194,7 +194,7 @@ const products = [
     featured: false,
     bestSeller: false,
     newArrival: true
-  }
+  },
 
 
   {
@@ -228,7 +228,7 @@ const products = [
     featured: false,
     bestSeller: true,
     newArrival: true
-  }
+  },
 
 
   {
@@ -262,6 +262,7 @@ const products = [
     featured: true,
     bestSeller: false,
     newArrival: true
-  }
+  },
+
   
   ];
