@@ -212,13 +212,7 @@ total+=item.price*item.quantity;
 
 message+=`Total: ₦${total.toLocaleString()}`;
 
-window.open(
-
-"https://wa.me/2348166061700?text="+message,
-
-"_blank"
-
-);
+alert("WhatsApp part reached");
 
 });
 
