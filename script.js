@@ -1,322 +1,823 @@
+// ===============================
+// FJS KOLLECTION - SCRIPT.JS
+// PART 1
+// ===============================
+
 let cart = [];
+let wishlist = [];
 
-// ===== Elements =====
-const cartItems = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-const searchInput = document.getElementById("searchInput");
 
-// ===== Add To Cart =====
-document.querySelectorAll(".product button").forEach(button=>{
+// ===============================
+// LOAD PRODUCTS
+// ===============================
 
-button.addEventListener("click",()=>{
+const productContainer = document.getElementById("product-list");
 
-const product = button.closest(".product");
+function loadProducts(){
 
-const name = product.querySelector("h3").innerText;
+  if(!productContainer) return;
 
-const priceText = product.querySelector(".new-price").innerText;
+  productContainer.innerHTML = "";
 
-const price = parseInt(priceText.replace(/[^\d]/g, ""), 10);
+  products.forEach(product => {
 
-const selects = product.querySelectorAll("select");
+    const discount = product.oldPrice
+      ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
+      : 0;
 
-const colour = selects.length > 0 ? selects[0].value : "";
 
-const quantityInput = product.querySelector(".quantity");
+    const productCard = document.createElement("div");
 
-const quantity = quantityInput ? Number(quantityInput.value) : 1;
+    productCard.className = "product";
+    productCard.dataset.category = product.category;
 
-cart.push({
-name,
-price,
-colour,
-quantity
-});
 
-displayCart();
+    productCard.innerHTML = `
 
-});
+      ${product.badge ? `<span class="badge sale">${product.badge}</span>` : ""}
 
-});
+      <span class="favorite" data-id="${product.id}">
+        🤍
+      </span>
 
-// ===== Display Cart =====
-function displayCart(){
 
-if(cart.length===0){
+      <img 
+        src="${product.image}" 
+        alt="${product.name}"
+        class="product-image"
+      >
 
-cartItems.innerHTML="<p>Your cart is empty.</p>";
 
-cartTotal.innerHTML="Total: ₦0";
+      <h3>${product.name}</h3>
 
-return;
+
+      <div class="rating">
+        ⭐⭐⭐⭐⭐
+        <span>(${product.rating})</span>
+      </div>
+
+
+      <p class="description">
+        ${product.description}
+      </p>
+
+
+      <p class="stock">
+        ${
+          product.stock <= 3
+          ? `Only ${product.stock} left`
+          : "In Stock"
+        }
+      </p>
+
+
+      <p class="price">
+
+        ${
+          product.oldPrice
+          ? `<span class="old-price">
+              ₦${product.oldPrice.toLocaleString()}
+             </span>`
+          : ""
+        }
+
+
+        <span class="new-price">
+          ₦${product.price.toLocaleString()}
+        </span>
+
+      </p>
+
+
+      ${
+        product.colours.length
+        ?
+        `
+        <label>Colour:</label>
+
+        <select class="colour">
+
+          ${product.colours.map(colour =>
+
+            `<option>${colour}</option>`
+
+          ).join("")}
+
+        </select>
+        `
+        :
+        ""
+      }
+
+
+      ${
+        product.sizes.length
+        ?
+        `
+        <label>Size:</label>
+
+        <select class="size">
+
+          ${product.sizes.map(size =>
+
+            `<option>${size}</option>`
+
+          ).join("")}
+
+        </select>
+        `
+        :
+        ""
+      }
+
+
+
+      <label>Quantity:</label>
+
+      <select class="quantity">
+
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+
+      </select>
+
+
+      <button class="add-cart">
+        Add To Cart
+      </button>
+
+
+    `;
+
+
+    productContainer.appendChild(productCard);
+
+
+  });
+
 
 }
 
-cartItems.innerHTML="";
 
-let total=0;
+// Start loading products
+
+loadProducts();
+
+
+
+// ===============================
+// ADD TO CART
+// ===============================
+
+
+document.addEventListener("click", function(e){
+
+
+  if(e.target.classList.contains("add-cart")){
+
+
+    const productCard = e.target.closest(".product");
+
+
+    const productName =
+      productCard.querySelector("h3").innerText;
+
+
+    const product =
+      products.find(item => item.name === productName);
+
+
+
+    const colour =
+      productCard.querySelector(".colour")
+      ?
+      productCard.querySelector(".colour").value
+      :
+      "";
+
+
+
+    const size =
+      productCard.querySelector(".size")
+      ?
+      productCard.querySelector(".size").value
+      :
+      "";
+
+
+
+    const quantity =
+      Number(productCard.querySelector(".quantity").value);
+
+
+
+    cart.push({
+
+      name: product.name,
+
+      price: product.price,
+
+      image: product.image,
+
+      colour,
+
+      size,
+
+      quantity
+
+    });
+
+
+    updateCart();
+
+
+    alert("Added to cart 💕");
+
+
+  }
+
+
+});
+
+
+
+// ===============================
+// DISPLAY CART
+// ===============================
+
+
+function updateCart(){
+
+
+const cartItems =
+document.getElementById("cart-items");
+
+
+const cartTotal =
+document.getElementById("cart-total");
+
+
+
+if(!cartItems) return;
+
+
+
+if(cart.length === 0){
+
+
+cartItems.innerHTML =
+"<p>Your cart is empty.</p>";
+
+
+cartTotal.innerHTML =
+"Total: ₦0";
+
+
+return;
+
+
+}
+
+
+
+cartItems.innerHTML = "";
+
+let total = 0;
+
+
 
 cart.forEach((item,index)=>{
 
+
 total += item.price * item.quantity;
 
-const div=document.createElement("div");
 
-div.innerHTML=`
+
+cartItems.innerHTML += `
+
+<div class="cart-item">
+
 
 <h4>${item.name}</h4>
 
-<p>Colour: ${item.colour}</p>
 
-<p>Qty: ${item.quantity || 1}</p>
+<p>
+Colour: ${item.colour}
+</p>
 
-<p>₦${item.price.toLocaleString()}</p>
 
-<button onclick="removeFromCart(${index})">
+<p>
+Size: ${item.size}
+</p>
+
+
+<p>
+Qty: ${item.quantity}
+</p>
+
+
+<p>
+₦${(item.price * item.quantity).toLocaleString()}
+</p>
+
+
+
+<button onclick="removeCartItem(${index})">
 
 Remove
 
 </button>
 
+
+</div>
+
 `;
 
-cartItems.appendChild(div);
 
 });
 
-cartTotal.innerHTML="Total: ₦"+total.toLocaleString();
+
+
+cartTotal.innerHTML =
+"Total: ₦" + total.toLocaleString();
+
+
+
+updateCartCount();
+
+
 
 }
 
-// ===== Remove =====
-function removeFromCart(index){
 
-cart.splice(index,1);
+// Continue in Part 2...
+// ===============================
+// REMOVE FROM CART
+// ===============================
 
-displayCart();
+function removeCartItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
 
 }
 
-window.removeFromCart=removeFromCart;
+window.removeCartItem = removeCartItem;
 
-// ===== Search =====
-if (searchInput) {
 
-  searchInput.addEventListener("keyup", () => {
 
-    const value = searchInput.value.toLowerCase();
+// ===============================
+// CART COUNT
+// ===============================
 
-    document.querySelectorAll(".product").forEach(product => {
+function updateCartCount(){
 
-      const text = product.innerText.toLowerCase();
+  const count =
+  document.getElementById("cart-count");
 
-      if (text.includes(value)) {
-        product.style.display = "";
-      } else {
-        product.style.display = "none";
-      }
+
+  if(count){
+
+    let totalItems = 0;
+
+
+    cart.forEach(item=>{
+
+      totalItems += item.quantity;
 
     });
 
-  });
+
+    count.innerText = totalItems;
+
+  }
 
 }
 
-// ===== Product Popup =====
-const popup=document.getElementById("productPopup");
-const popupImage=document.getElementById("popupImage");
-const popupTitle=document.getElementById("popupTitle");
-const popupPrice=document.getElementById("popupPrice");
-const closePopup=document.querySelector(".close-popup");
 
-document.querySelectorAll(".product img").forEach(img=>{
 
-img.addEventListener("click",()=>{
+// ===============================
+// PRODUCT POPUP
+// ===============================
 
-const product=img.closest(".product");
 
-popupImage.src=img.src;
+const popup =
+document.getElementById("productPopup");
 
-popupTitle.innerText=product.querySelector("h3").innerText;
 
-popupPrice.innerText=product.querySelector(".new-price").innerText;
+const popupImage =
+document.getElementById("popupImage");
 
-popup.style.display="flex";
+
+const popupTitle =
+document.getElementById("popupTitle");
+
+
+const popupPrice =
+document.getElementById("popupPrice");
+
+
+
+document.addEventListener("click", function(e){
+
+
+if(e.target.classList.contains("product-image")){
+
+
+const card =
+e.target.closest(".product");
+
+
+const name =
+card.querySelector("h3").innerText;
+
+
+
+const product =
+products.find(item=>item.name === name);
+
+
+
+if(product){
+
+
+popupImage.src = product.image;
+
+
+popupTitle.innerText =
+product.name;
+
+
+popupPrice.innerText =
+"₦" + product.price.toLocaleString();
+
+
+
+popup.style.display = "flex";
+
+
+}
+
+
+}
+
 
 });
 
-});
+
+
+// Close popup
+
+
+const closePopup =
+document.querySelector(".close-popup");
+
 
 if(closePopup){
 
-closePopup.onclick=()=>{
 
-popup.style.display="none";
+closePopup.onclick = function(){
 
-};
 
-}
+popup.style.display = "none";
 
-window.onclick=function(e){
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
 
 };
 
-// ===== WhatsApp Checkout =====
-const orderForm=document.getElementById("order-form");
+
+}
+
+
+
+window.onclick = function(e){
+
+
+if(e.target === popup){
+
+popup.style.display = "none";
+
+}
+
+
+};
+
+
+
+
+// ===============================
+// FAVORITES
+// ===============================
+
+
+document.addEventListener("click",function(e){
+
+
+if(e.target.classList.contains("favorite")){
+
+
+const id =
+Number(e.target.dataset.id);
+
+
+
+if(wishlist.includes(id)){
+
+
+wishlist =
+wishlist.filter(item=>item !== id);
+
+
+e.target.innerHTML = "🤍";
+
+
+}else{
+
+
+wishlist.push(id);
+
+
+e.target.innerHTML = "❤️";
+
+
+}
+
+
+}
+
+
+});
+
+
+
+
+// ===============================
+// SEARCH
+// ===============================
+
+
+const searchInput =
+document.getElementById("searchInput");
+
+
+
+if(searchInput){
+
+
+searchInput.addEventListener("input",function(){
+
+
+const value =
+searchInput.value.toLowerCase();
+
+
+
+document.querySelectorAll(".product")
+.forEach(product=>{
+
+
+const text =
+product.innerText.toLowerCase();
+
+
+
+if(text.includes(value)){
+
+
+product.style.display = "";
+
+
+}else{
+
+
+product.style.display = "none";
+
+
+}
+
+
+
+});
+
+
+});
+
+
+}
+
+
+
+
+// ===============================
+// CATEGORY FILTER
+// ===============================
+
+
+const filterButtons =
+document.querySelectorAll(".filter-btn");
+
+
+
+filterButtons.forEach(button=>{
+
+
+button.addEventListener("click",function(){
+
+
+const filter =
+this.dataset.filter;
+
+
+
+document.querySelectorAll(".product")
+.forEach(product=>{
+
+
+if(
+filter === "all" ||
+product.dataset.category === filter
+){
+
+
+product.style.display = "";
+
+
+}else{
+
+
+product.style.display = "none";
+
+
+}
+
+
+
+});
+
+
+});
+
+
+});
+
+
+
+
+// ===============================
+// CHECKOUT SCROLL
+// ===============================
+
+
+const checkoutBtn =
+document.getElementById("checkoutBtn");
+
+
+
+if(checkoutBtn){
+
+
+checkoutBtn.addEventListener("click",function(){
+
+
+document
+.getElementById("checkout")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+
+});
+
+
+}
+
+
+
+
+// ===============================
+// WHATSAPP CHECKOUT
+// ===============================
+
+
+const orderForm =
+document.getElementById("order-form");
+
+
 
 if(orderForm){
 
+
 orderForm.addEventListener("submit",function(e){
+
 
 e.preventDefault();
 
-const name=document.getElementById("customerName").value;
 
-const phone=document.getElementById("customerPhone").value;
 
-const address=document.getElementById("customerAddress").value;
+const name =
+document.getElementById("customerName").value;
 
-let message=`Hello Fjs Kollection 💕%0A%0A`;
 
-message+=`Name: ${name}%0A`;
 
-message+=`Phone: ${phone}%0A`;
+const phone =
+document.getElementById("customerPhone").value;
 
-message+=`Address: ${address}%0A%0A`;
 
-message+="Order:%0A";
 
-let total=0;
+const address =
+document.getElementById("customerAddress").value;
+
+
+
+let message =
+`Hello Fjs Kollection 💕%0A%0A`;
+
+
+
+message +=
+`Name: ${name}%0A`;
+
+message +=
+`Phone: ${phone}%0A`;
+
+message +=
+`Address: ${address}%0A%0A`;
+
+
+
+message +=
+`Order Details:%0A%0A`;
+
+
+
+let total = 0;
+
+
 
 cart.forEach(item=>{
 
-message+=`${item.name}%0A`;
 
-message+=`Colour: ${item.colour}%0A`;
+message +=
+`${item.name}%0A`;
 
-message+=`Qty: ${item.quantity}%0A`;
 
-message+=`Price: ₦${item.price.toLocaleString()}%0A%0A`;
+message +=
+`Colour: ${item.colour}%0A`;
 
-total+=item.price*item.quantity;
 
-});
+message +=
+`Size: ${item.size}%0A`;
 
-message+=`Total: ₦${total.toLocaleString()}`;
 
-alert("WhatsApp part reached");
+message +=
+`Quantity: ${item.quantity}%0A`;
 
-});
 
-}
-document.querySelectorAll(".favorite").forEach(function (heart) {
+message +=
+`Price: ₦${item.price.toLocaleString()}%0A%0A`;
 
-  heart.addEventListener("click", function (e) {
 
-    e.stopPropagation();
 
-    if (this.innerHTML === "🤍") {
-      this.innerHTML = "❤️";
-    } else {
-      this.innerHTML = "🤍";
-    }
+total +=
+item.price * item.quantity;
 
-  });
+
 
 });
-const filterButtons = document.querySelectorAll(".filter-btn");
-const products = document.querySelectorAll(".product");
 
-filterButtons.forEach(button => {
 
-  button.addEventListener("click", function(){
 
-    filterButtons.forEach(btn => btn.classList.remove("active"));
-    this.classList.add("active");
+message +=
+`Total: ₦${total.toLocaleString()}`;
 
-    const filter = this.dataset.filter;
 
-    products.forEach(product => {
 
-      if(filter === "all" || product.dataset.category === filter){
-        product.style.display = "";
-      }else{
-        product.style.display = "none";
-      }
+window.open(
 
-    });
+"https://wa.me/2348166061700?text=" + message,
 
-  });
+"_blank"
 
-});
-// ===== Scroll Animation =====
-
-const animatedItems = document.querySelectorAll(
-  ".product, .best-card, .arrival-card, .review-card, .why-card, .category"
 );
 
-const observer = new IntersectionObserver((entries) => {
 
-  entries.forEach(entry => {
 
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-
-  });
-
-}, {
-  threshold: 0.2
 });
 
-animatedItems.forEach(item => {
-  item.classList.add("animate");
-  observer.observe(item);
-});
-const checkoutBtn = document.getElementById("checkoutBtn");
-
-if (checkoutBtn) {
-  checkoutBtn.addEventListener("click", function () {
-    document
-      .getElementById("checkout")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-  });
-}
-// ===== Load Products Automatically =====
-
-const productList = document.getElementById("dynamic-products");
-
-if (productList && typeof products !== "undefined") {
-
-  products.forEach(product => {
-
-    const div = document.createElement("div");
-
-    div.className = "product";
-
-    div.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-
-      <h3>${product.name}</h3>
-
-      <p class="price">
-        <span class="old-price">${product.oldPrice}</span>
-        <span class="new-price">${product.price}</span>
-      </p>
-
-      <button>Add to Cart</button>
-    `;
-
-    productList.appendChild(div);
-
-  });
 
 }
+
+
+
+
+// ===============================
+// INITIAL CART LOAD
+// ===============================
+
+
+updateCart();
