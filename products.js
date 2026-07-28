@@ -232,7 +232,7 @@ const products = [
 
 ];
   {
-    id: 2,
+    id: 8,
     name: "Big Hermes Bag",
     category: "bag",
     badge: "NEW",
