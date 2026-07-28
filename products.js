@@ -194,10 +194,10 @@ const products = [
     featured: false,
     bestSeller: false,
     newArrival: true
-  },
+  }
 
 
-  {
+    {
     id: 7,
     name: "Black Open Toe High Heel Sandals",
     category: "heel",
@@ -228,18 +228,17 @@ const products = [
     featured: false,
     bestSeller: true,
     newArrival: true
-  }
+  },
 
 
   {
     id: 8,
     name: "Big Hermes Bag",
     category: "bag",
-    badge: "NEW",
+    badge: "SALE",
     rating: 4.9,
     stock: 10,
 
-    oldPrice: 0,
     price: 20000,
 
     image: "https://i.postimg.cc/65xPkRfx/IMG-4496.jpg",
@@ -263,6 +262,6 @@ const products = [
     featured: true,
     bestSeller: false,
     newArrival: true
-  },
+  }
   
   ];
