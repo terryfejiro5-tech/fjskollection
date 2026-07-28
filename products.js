@@ -262,7 +262,6 @@ const products = [
     featured: true,
     bestSeller: false,
     newArrival: true
-  },
+  }
 
-  
-  ];
+];
