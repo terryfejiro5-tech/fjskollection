@@ -239,6 +239,7 @@ const products = [
     rating: 4.9,
     stock: 10,
 
+    oldPrice: 0,
     price: 20000,
 
     image: "https://i.postimg.cc/65xPkRfx/IMG-4496.jpg",
