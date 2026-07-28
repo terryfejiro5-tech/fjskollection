@@ -1,5 +1,3 @@
-console.log(products);
-
 let cart = [];
 
 // ===== Elements =====
