@@ -810,3 +810,11 @@ font-size:28px;
   border-radius: 10px;
   background: #fff;
 }
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  object-fit: contain;
+  display: block;
+  margin: 20px auto;
+}
