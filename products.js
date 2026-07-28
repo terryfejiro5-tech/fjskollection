@@ -230,7 +230,7 @@ const products = [
     newArrival: true
   }
 
-];
+
   {
     id: 8,
     name: "Big Hermes Bag",
@@ -264,3 +264,5 @@ const products = [
     bestSeller: false,
     newArrival: true
   },
+  
+  ];
