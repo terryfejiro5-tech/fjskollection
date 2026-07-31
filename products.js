@@ -181,7 +181,7 @@ const products = [
       "Trendy feminine dress suitable for casual outings and events. Pre-order, Delivery within 2 weeks.",
 
     colours: [
-      "Multiple Colours"
+      "Yellow"
     ],
 
     sizes: [
