@@ -36,7 +36,7 @@ const products = [
     id: 2,
     name: "Luxury Yellow Coach Bag",
     category: "bag",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 5,
 
@@ -168,7 +168,7 @@ const products = [
     id: 6,
     name: "Women's Draped Neck Bell Sleeve Dress",
     category: "dress",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 12,
 
@@ -178,7 +178,7 @@ const products = [
     image: "https://i.postimg.cc/c1Rth9NH/IMG-4458.jpg",
 
     description:
-      "Trendy feminine dress suitable for casual outings and events.",
+      "Trendy feminine dress suitable for casual outings and events. Pre-order, Delivery within 2 weeks.",
 
     colours: [
       "Multiple Colours"
@@ -201,7 +201,7 @@ const products = [
     id: 7,
     name: "Black Open Toe High Heel Sandals",
     category: "heel",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 6,
 
