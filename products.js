@@ -135,7 +135,7 @@ const products = [
     id: 5,
     name: "Sexy Floral V-Neck Fitted Bustier Dress",
     category: "dress",
-    badge: "PRE-ORDER",
+    badge: "SALE",
     rating: 5.0,
     stock: 20,
 
@@ -145,7 +145,7 @@ const products = [
     image: "https://i.postimg.cc/J79YNFxg/IMG-4456.jpg",
 
     description:
-      "Beautiful fitted floral dress perfect for birthdays, dinners and special occasions. Delivery within 2 weeks.",
+      "Beautiful fitted floral dress perfect for birthdays, dinners and special occasions. Pre-order, Delivery within 2 weeks.",
 
     colours: [
       "Multicolor"
