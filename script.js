@@ -793,7 +793,10 @@ item.price * item.quantity;
 
 
 message +=
-`Total: ₦${total.toLocaleString()}`;
+`Total: ₦${total.toLocaleString()}%0A%0A`;
+
+message +=
+`Please send me the payment details. Thank you ❤️`;
 
 
 

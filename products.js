@@ -36,7 +36,7 @@ const products = [
     id: 2,
     name: "Luxury Yellow Coach Bag",
     category: "bag",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 5,
 
@@ -135,7 +135,7 @@ const products = [
     id: 5,
     name: "Sexy Floral V-Neck Fitted Bustier Dress",
     category: "dress",
-    badge: "PRE-ORDER",
+    badge: "SALE",
     rating: 5.0,
     stock: 20,
 
@@ -145,7 +145,7 @@ const products = [
     image: "https://i.postimg.cc/J79YNFxg/IMG-4456.jpg",
 
     description:
-      "Beautiful fitted floral dress perfect for birthdays, dinners and special occasions. Delivery within 2 weeks.",
+      "Beautiful fitted floral dress perfect for birthdays, dinners and special occasions. Pre-order, Delivery within 2 weeks.",
 
     colours: [
       "Multicolor"
@@ -168,7 +168,7 @@ const products = [
     id: 6,
     name: "Women's Draped Neck Bell Sleeve Dress",
     category: "dress",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 12,
 
@@ -178,10 +178,10 @@ const products = [
     image: "https://i.postimg.cc/c1Rth9NH/IMG-4458.jpg",
 
     description:
-      "Trendy feminine dress suitable for casual outings and events.",
+      "Trendy feminine dress suitable for casual outings and events. Pre-order, Delivery within 2 weeks.",
 
     colours: [
-      "Multiple Colours"
+      "Yellow"
     ],
 
     sizes: [
@@ -201,7 +201,7 @@ const products = [
     id: 7,
     name: "Black Open Toe High Heel Sandals",
     category: "heel",
-    badge: "NEW",
+    badge: "SALE",
     rating: 5.0,
     stock: 6,
 
@@ -227,6 +227,41 @@ const products = [
 
     featured: false,
     bestSeller: true,
+    newArrival: true
+  },
+
+
+  {
+    id: 8,
+    name: "Big Hermes Bag",
+    category: "bag",
+    badge: "SALE",
+    rating: 4.9,
+    stock: 10,
+
+    oldPrice: 0,
+    price: 20000,
+
+    image: "https://i.postimg.cc/65xPkRfx/IMG-4496.jpg",
+
+    description:
+      "A big Hermes bag with a stylish and classy design, perfect for outings, office, dinner dates and everyday fashion.",
+
+    colours: [
+      "White",
+      "Nude",
+      "Brown",
+      "Black",
+      "Blue",
+      "Red",
+      "Pink",
+      "Ash"
+    ],
+
+    sizes: [],
+
+    featured: true,
+    bestSeller: false,
     newArrival: true
   }
 
